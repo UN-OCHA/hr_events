@@ -105,6 +105,7 @@ features[panelizer_defaults][] = node:hr_event:default:search_result
 features[panelizer_defaults][] = node:hr_event:default:teaser
 features[search_api_autocomplete_search][] = search_api_views_hr_events
 features[taxonomy][] = hr_event_category
+features[user_permission][] = use search_api_autocomplete for search_api_views_hr_events
 features[variable][] = field_bundle_settings_node__hr_event
 features[variable][] = language_content_type_hr_event
 features[variable][] = menu_options_hr_event
