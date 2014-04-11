@@ -1556,13 +1556,13 @@ function hr_events_field_default_field_instances() {
   t('Event Category');
   t('Funding Types');
   t('Funding methods');
+  t('Global Clusters');
   t('Groups audience');
   t('Location');
   t('Meeting minutes');
   t('Name');
   t('Organization');
   t('Related content');
-  t('Sectors');
   t('Themes');
   t('Title');
 

@@ -132,7 +132,7 @@ Relevance Desc|Least relevant',
     'country_name_position' => 'after',
     'numbertype_position' => 'before',
   );
-  /* Field: Indexed Node: Name */
+  /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
@@ -348,7 +348,7 @@ Relevance Desc|Least relevant',
     'country_name_position' => 'after',
     'numbertype_position' => 'before',
   );
-  /* Field: Indexed Node: Name */
+  /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
