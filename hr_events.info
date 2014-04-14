@@ -38,6 +38,7 @@ dependencies[] = og_ui
 dependencies[] = options
 dependencies[] = panelizer
 dependencies[] = phone
+dependencies[] = radix_layouts
 dependencies[] = search_api_autocomplete
 dependencies[] = strongarm
 dependencies[] = taxonomy

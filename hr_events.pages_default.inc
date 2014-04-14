@@ -66,7 +66,7 @@ function hr_events_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_twocol_stacked';
+  $display->layout = 'radix_boxton';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -80,6 +80,9 @@ function hr_events_default_page_manager_pages() {
       'top' => array(
         'region_title' => '',
       ),
+      'contentmain' => array(
+        'region_title' => '',
+      ),
     ),
     'bottom' => array(
       'style' => 'naked',
@@ -90,6 +93,9 @@ function hr_events_default_page_manager_pages() {
     'middle' => array(
       'style' => 'bootstrap_styles:tabs',
     ),
+    'contentmain' => array(
+      'style' => 'bootstrap_styles:tabs',
+    ),
   );
   $display->cache = array();
   $display->title = '';
@@ -98,7 +104,7 @@ function hr_events_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-42379ec3-1ed4-4d09-81a0-6ec2129fb105';
-    $pane->panel = 'top';
+    $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'hr_events-calendar';
     $pane->shown = TRUE;
@@ -120,10 +126,10 @@ function hr_events_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '42379ec3-1ed4-4d09-81a0-6ec2129fb105';
     $display->content['new-42379ec3-1ed4-4d09-81a0-6ec2129fb105'] = $pane;
-    $display->panels['top'][0] = 'new-42379ec3-1ed4-4d09-81a0-6ec2129fb105';
+    $display->panels['contentmain'][0] = 'new-42379ec3-1ed4-4d09-81a0-6ec2129fb105';
     $pane = new stdClass();
     $pane->pid = 'new-d3fb5c9d-4b94-416b-b84a-114c83eb63e6';
-    $pane->panel = 'top';
+    $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'hr_events-list';
     $pane->shown = TRUE;
@@ -145,7 +151,7 @@ function hr_events_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'd3fb5c9d-4b94-416b-b84a-114c83eb63e6';
     $display->content['new-d3fb5c9d-4b94-416b-b84a-114c83eb63e6'] = $pane;
-    $display->panels['top'][1] = 'new-d3fb5c9d-4b94-416b-b84a-114c83eb63e6';
+    $display->panels['contentmain'][1] = 'new-d3fb5c9d-4b94-416b-b84a-114c83eb63e6';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
