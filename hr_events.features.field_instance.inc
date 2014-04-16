@@ -1377,6 +1377,66 @@ function hr_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-hr_event-group_content_access'
+  $field_instances['node-hr_event-group_content_access'] = array(
+    'bundle' => 'hr_event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 21,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_content_access',
+    'label' => 'Group content visibility',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+      'type' => 'options_select',
+      'weight' => 20,
+    ),
+    'widget_type' => 'options_select',
+  );
+
   // Exported field_instance: 'node-hr_event-og_group_ref'
   $field_instances['node-hr_event-og_group_ref'] = array(
     'bundle' => 'hr_event',
@@ -1449,7 +1509,7 @@ function hr_events_field_default_field_instances() {
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
-      'weight' => 20,
+      'weight' => 21,
     ),
   );
 
@@ -1557,6 +1617,7 @@ function hr_events_field_default_field_instances() {
   t('Funding Types');
   t('Funding methods');
   t('Global Clusters');
+  t('Group content visibility');
   t('Groups audience');
   t('Location');
   t('Meeting minutes');
