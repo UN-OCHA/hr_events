@@ -44,6 +44,7 @@ Relevance Desc|Least relevant',
         'reset_label' => '',
         'is_secondary' => 0,
       ),
+      'mefibs_block_sort_bef' => 'sorts',
     ),
     'search_api_views_fulltext' => array(
       'bef_format' => 'default',
@@ -64,7 +65,8 @@ Relevance Desc|Least relevant',
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'search_result';
@@ -188,10 +190,69 @@ Relevance Desc|Least relevant',
     30037204 => 0,
   );
 
+  /* Display: Master */
+  $handler = $view->new_display('page', 'Master', 'master');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'fullcalendar';
+  $handler->display->display_options['style_options']['firstDay'] = '1';
+  $handler->display->display_options['style_options']['editable'] = TRUE;
+  $handler->display->display_options['style_options']['fields']['title_field'] = 'title_field';
+  $handler->display->display_options['style_options']['fields']['title'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['mefibs'] = array(
+    'blocks' => array(
+      0 => array(
+        'name' => 'Sorts',
+        'machine_name' => 'sorts',
+      ),
+    ),
+    'extras' => array(
+      'sort' => NULL,
+      'items_per_page' => NULL,
+    ),
+    'master' => array(
+      'sort_block' => 'sorts',
+      'filter' => array(),
+    ),
+  );
+  $handler->display->display_options['path'] = 'node/%/events';
+  $handler->display->display_options['menu']['title'] = 'Calendar';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
+
+  /* Display: Calendar */
+  $handler = $view->new_display('page', 'Calendar', 'calendar');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'fullcalendar';
+  $handler->display->display_options['style_options']['firstDay'] = '1';
+  $handler->display->display_options['style_options']['editable'] = TRUE;
+  $handler->display->display_options['style_options']['fields']['title_field'] = 'title_field';
+  $handler->display->display_options['style_options']['fields']['title'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['path'] = 'node/%/events/calendar';
+  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['title'] = 'Calendar';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
+
   /* Display: List */
-  $handler = $view->new_display('panel_pane', 'List', 'list');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'List';
+  $handler = $view->new_display('page', 'List', 'list');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['mefibs'] = array(
     'blocks' => array(
@@ -209,75 +270,12 @@ Relevance Desc|Least relevant',
       'filter' => array(),
     ),
   );
-  $handler->display->display_options['pane_category']['name'] = 'Events';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-  $handler->display->display_options['allow']['use_pager'] = 0;
-  $handler->display->display_options['allow']['items_per_page'] = 0;
-  $handler->display->display_options['allow']['offset'] = 0;
-  $handler->display->display_options['allow']['link_to_view'] = 0;
-  $handler->display->display_options['allow']['more_link'] = 0;
-  $handler->display->display_options['allow']['path_override'] = 0;
-  $handler->display->display_options['allow']['title_override'] = 'title_override';
-  $handler->display->display_options['allow']['exposed_form'] = 0;
-  $handler->display->display_options['allow']['fields_override'] = 0;
-  $handler->display->display_options['argument_input'] = array(
-    'og_group_ref' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Indexed Node: Groups audience',
-    ),
-  );
-  $handler->display->display_options['inherit_panels_path'] = '1';
-
-  /* Display: Calendar */
-  $handler = $view->new_display('panel_pane', 'Calendar', 'calendar');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Calendar';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'fullcalendar';
-  $handler->display->display_options['style_options']['editable'] = TRUE;
-  $handler->display->display_options['style_options']['times']['date'] = array(
-    'year' => '2014',
-    'month' => '1',
-    'day' => '1',
-  );
-  $handler->display->display_options['style_options']['fields']['title_field'] = 'title_field';
-  $handler->display->display_options['style_options']['fields']['title'] = TRUE;
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['pane_category']['name'] = 'Events';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-  $handler->display->display_options['allow']['use_pager'] = 0;
-  $handler->display->display_options['allow']['items_per_page'] = 0;
-  $handler->display->display_options['allow']['offset'] = 0;
-  $handler->display->display_options['allow']['link_to_view'] = 0;
-  $handler->display->display_options['allow']['more_link'] = 0;
-  $handler->display->display_options['allow']['path_override'] = 0;
-  $handler->display->display_options['allow']['title_override'] = 'title_override';
-  $handler->display->display_options['allow']['exposed_form'] = 0;
-  $handler->display->display_options['allow']['fields_override'] = 0;
-  $handler->display->display_options['argument_input'] = array(
-    'og_group_ref' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Indexed Node: Groups audience',
-    ),
-  );
-  $handler->display->display_options['inherit_panels_path'] = '1';
+  $handler->display->display_options['path'] = 'node/%/events/list';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'List';
+  $handler->display->display_options['menu']['weight'] = '2';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: iCal */
   $handler = $view->new_display('feed', 'iCal', 'ical');
@@ -362,9 +360,10 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'node/%/events/ical';
   $handler->display->display_options['displays'] = array(
+    'master' => 'master',
+    'calendar' => 'calendar',
+    'list' => 'list',
     'default' => 0,
-    'list' => 0,
-    'calendar' => 0,
   );
   $translatables['hr_events'] = array(
     t('Master'),
@@ -375,13 +374,6 @@ Relevance Desc|Least relevant',
     t('Asc'),
     t('Desc'),
     t('Select any filter and click on Apply to see results'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
     t('There are no results'),
     t('[title_field]<br />
 [field_event_date]<br />
@@ -391,9 +383,15 @@ Relevance Desc|Least relevant',
     t('Relevance'),
     t('All'),
     t('Search Events'),
-    t('List'),
-    t('Events'),
     t('Calendar'),
+    t('List'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('iCal'),
   );
   $export['hr_events'] = $view;
