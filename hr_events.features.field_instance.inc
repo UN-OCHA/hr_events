@@ -1473,7 +1473,7 @@ function hr_events_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'og_group_ref',
-    'label' => 'Primary space',
+    'label' => 'Space(s)',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
