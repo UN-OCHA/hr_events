@@ -1624,12 +1624,12 @@ function hr_events_field_default_field_instances() {
   t('Funding methods');
   t('Global Clusters');
   t('Group content visibility');
-  t('Groups audience');
   t('Location');
   t('Meeting minutes');
   t('Name');
   t('Organization');
   t('Related content');
+  t('Space(s)');
   t('Themes');
   t('Title');
 

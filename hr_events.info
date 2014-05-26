@@ -46,6 +46,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = views
 dependencies[] = views_content
+features[context][] = hr_event
 features[context][] = hr_events_space
 features[context][] = hr_events_space_list
 features[ctools][] = context:context:3

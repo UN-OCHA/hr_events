@@ -13,6 +13,54 @@ function hr_events_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'hr_event';
+  $context->description = 'On event page';
+  $context->tag = 'Events';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'hr_event' => 'hr_event',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views--exp-hr_search-page' => array(
+          'module' => 'views',
+          'delta' => '-exp-hr_search-page',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
+        'system-main-menu' => array(
+          'module' => 'system',
+          'delta' => 'main-menu',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'disable_context' => array(
+      'disabled' => array(
+        'hr_space_menu' => 'hr_space_menu',
+        'within_space' => 'within_space',
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Events');
+  t('On event page');
+  $export['hr_event'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'hr_events_space';
   $context->description = 'Events page per space';
   $context->tag = 'Events';
