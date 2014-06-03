@@ -133,25 +133,6 @@ function hr_events_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_event_email'
-  $field_bases['field_event_email'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_email',
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'email',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'email',
-  );
-
   // Exported field_base: 'field_event_meeting_minutes'
   $field_bases['field_event_meeting_minutes'] = array(
     'active' => 1,
@@ -195,70 +176,6 @@ function hr_events_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_event_person'
-  $field_bases['field_event_person'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_person',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max_length' => 255,
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_event_telephone'
-  $field_bases['field_event_telephone'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_telephone',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'countrycode' => array(
-        0 => 'countrycode',
-      ),
-      'numbertype' => array(
-        0 => 'numbertype',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'phone',
-    'settings' => array(
-      'enable_numbertype' => 1,
-      'entity_translation_sync' => FALSE,
-      'numbertype_allowed_values' => array(
-        'cell' => 'cell',
-        'fax' => 'fax',
-        'home' => 'home',
-        'work' => 'work',
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'phone',
   );
 
   return $field_bases;

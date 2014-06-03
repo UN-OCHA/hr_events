@@ -159,19 +159,21 @@ function hr_events_panelizer_defaults() {
     $display->content['new-416cb522-e5b2-457b-9d27-d2ed05ae4d22'] = $pane;
     $display->panels['contentmain'][3] = 'new-416cb522-e5b2-457b-9d27-d2ed05ae4d22';
     $pane = new stdClass();
-    $pane->pid = 'new-f23a86a1-b536-4ec9-b0a6-73a59e3ae885';
+    $pane->pid = 'new-85decc7d-838e-4225-840d-310a44a48562';
     $pane->panel = 'contentmain';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_event_person';
+    $pane->subtype = 'node:field_users_ref';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
+      'label' => 'above',
+      'formatter' => 'field_collection_fields',
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'view_mode' => 'full',
+      ),
       'context' => 'panelizer',
       'override_title' => 0,
       'override_title_text' => '',
@@ -184,79 +186,9 @@ function hr_events_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 4;
     $pane->locks = array();
-    $pane->uuid = 'f23a86a1-b536-4ec9-b0a6-73a59e3ae885';
-    $display->content['new-f23a86a1-b536-4ec9-b0a6-73a59e3ae885'] = $pane;
-    $display->panels['contentmain'][4] = 'new-f23a86a1-b536-4ec9-b0a6-73a59e3ae885';
-    $pane = new stdClass();
-    $pane->pid = 'new-160a11ce-c8b9-4ad2-85e2-248032e255c3';
-    $pane->panel = 'contentmain';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_event_telephone';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'phone_international',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'as_tel_link' => 0,
-        'raw' => 0,
-        'full_hcard' => 0,
-        'allow_alpha' => 0,
-        'country_name_position' => 'after',
-        'numbertype_position' => 'before',
-        'extension_prefix' => ' ext. ',
-        'components' => array(
-          'numbertype' => 'numbertype',
-          'country' => 0,
-        ),
-      ),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '160a11ce-c8b9-4ad2-85e2-248032e255c3';
-    $display->content['new-160a11ce-c8b9-4ad2-85e2-248032e255c3'] = $pane;
-    $display->panels['contentmain'][5] = 'new-160a11ce-c8b9-4ad2-85e2-248032e255c3';
-    $pane = new stdClass();
-    $pane->pid = 'new-b0d2fa7f-8c8b-47d3-a9a6-50d76aee6c9c';
-    $pane->panel = 'contentmain';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_event_email';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'email_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = 'b0d2fa7f-8c8b-47d3-a9a6-50d76aee6c9c';
-    $display->content['new-b0d2fa7f-8c8b-47d3-a9a6-50d76aee6c9c'] = $pane;
-    $display->panels['contentmain'][6] = 'new-b0d2fa7f-8c8b-47d3-a9a6-50d76aee6c9c';
+    $pane->uuid = '85decc7d-838e-4225-840d-310a44a48562';
+    $display->content['new-85decc7d-838e-4225-840d-310a44a48562'] = $pane;
+    $display->panels['contentmain'][4] = 'new-85decc7d-838e-4225-840d-310a44a48562';
     $pane = new stdClass();
     $pane->pid = 'new-6e03a910-bd22-4483-a56f-05fe6f7f767c';
     $pane->panel = 'contentmain';
@@ -283,11 +215,11 @@ function hr_events_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '6e03a910-bd22-4483-a56f-05fe6f7f767c';
     $display->content['new-6e03a910-bd22-4483-a56f-05fe6f7f767c'] = $pane;
-    $display->panels['contentmain'][7] = 'new-6e03a910-bd22-4483-a56f-05fe6f7f767c';
+    $display->panels['contentmain'][5] = 'new-6e03a910-bd22-4483-a56f-05fe6f7f767c';
     $pane = new stdClass();
     $pane->pid = 'new-c84f20a6-8b7f-4a8f-8f3a-2487821037d5';
     $pane->panel = 'contentmain';
@@ -314,11 +246,11 @@ function hr_events_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = 'c84f20a6-8b7f-4a8f-8f3a-2487821037d5';
     $display->content['new-c84f20a6-8b7f-4a8f-8f3a-2487821037d5'] = $pane;
-    $display->panels['contentmain'][8] = 'new-c84f20a6-8b7f-4a8f-8f3a-2487821037d5';
+    $display->panels['contentmain'][6] = 'new-c84f20a6-8b7f-4a8f-8f3a-2487821037d5';
     $pane = new stdClass();
     $pane->pid = 'new-95a6e9c2-1e81-41d4-adcc-fea60e653ab1';
     $pane->panel = 'contentmain';
@@ -343,11 +275,11 @@ function hr_events_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 7;
     $pane->locks = array();
     $pane->uuid = '95a6e9c2-1e81-41d4-adcc-fea60e653ab1';
     $display->content['new-95a6e9c2-1e81-41d4-adcc-fea60e653ab1'] = $pane;
-    $display->panels['contentmain'][9] = 'new-95a6e9c2-1e81-41d4-adcc-fea60e653ab1';
+    $display->panels['contentmain'][7] = 'new-95a6e9c2-1e81-41d4-adcc-fea60e653ab1';
     $pane = new stdClass();
     $pane->pid = 'new-5d17000e-b1fa-40e5-b57b-70884cc83990';
     $pane->panel = 'sidebar';
