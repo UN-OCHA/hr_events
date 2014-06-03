@@ -77,6 +77,10 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'There are no results';
   $handler->display->display_options['empty']['area']['format'] = 'plain_text';
+  /* Relationship: Indexed Node: Contact(s) */
+  $handler->display->display_options['relationships']['field_users_ref']['id'] = 'field_users_ref';
+  $handler->display->display_options['relationships']['field_users_ref']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['relationships']['field_users_ref']['field'] = 'field_users_ref';
   /* Field: Indexed Node: Date */
   $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['table'] = 'search_api_index_default_node_index';
@@ -108,24 +112,30 @@ Relevance Desc|Least relevant',
       'address' => 'address',
     ),
   );
-  /* Field: Indexed Node: Contact Email */
-  $handler->display->display_options['fields']['field_event_email']['id'] = 'field_event_email';
-  $handler->display->display_options['fields']['field_event_email']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_event_email']['field'] = 'field_event_email';
-  $handler->display->display_options['fields']['field_event_email']['label'] = '';
-  $handler->display->display_options['fields']['field_event_email']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_email']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Contact Telephone */
-  $handler->display->display_options['fields']['field_event_telephone']['id'] = 'field_event_telephone';
-  $handler->display->display_options['fields']['field_event_telephone']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_event_telephone']['field'] = 'field_event_telephone';
-  $handler->display->display_options['fields']['field_event_telephone']['label'] = '';
-  $handler->display->display_options['fields']['field_event_telephone']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_telephone']['click_sort_column'] = 'numbertype';
-  $handler->display->display_options['fields']['field_event_telephone']['settings'] = array(
+  /* Field: Field collection item: User */
+  $handler->display->display_options['fields']['field_user']['id'] = 'field_user';
+  $handler->display->display_options['fields']['field_user']['table'] = 'entity_field_collection_item';
+  $handler->display->display_options['fields']['field_user']['field'] = 'field_user';
+  $handler->display->display_options['fields']['field_user']['relationship'] = 'field_users_ref';
+  $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
+  /* Field: Field collection item: Cluster coordinator Email */
+  $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
+  $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['relationship'] = 'field_users_ref';
+  $handler->display->display_options['fields']['field_email']['label'] = 'Email';
+  /* Field: Field collection item: Phones */
+  $handler->display->display_options['fields']['field_phones']['id'] = 'field_phones';
+  $handler->display->display_options['fields']['field_phones']['table'] = 'entity_field_collection_item';
+  $handler->display->display_options['fields']['field_phones']['field'] = 'field_phones';
+  $handler->display->display_options['fields']['field_phones']['relationship'] = 'field_users_ref';
+  $handler->display->display_options['fields']['field_phones']['click_sort_column'] = 'numbertype';
+  $handler->display->display_options['fields']['field_phones']['settings'] = array(
     'components' => array(
+      'numbertype' => 'numbertype',
       'country' => 0,
-      'numbertype' => 0,
     ),
     'full_hcard' => 0,
     'as_tel_link' => 0,
@@ -134,6 +144,7 @@ Relevance Desc|Least relevant',
     'country_name_position' => 'after',
     'numbertype_position' => 'before',
   );
+  $handler->display->display_options['fields']['field_phones']['delta_offset'] = '0';
   /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'search_api_index_default_node_index';
@@ -152,7 +163,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['search_api_relevance']['expose']['label'] = 'Relevance';
-  /* Contextual filter: Indexed Node: Groups audience */
+  /* Contextual filter: Indexed Node: Space(s) */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -289,75 +300,6 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['row_options']['additional_settings'] = array(
     'skip_blank_dates' => 0,
   );
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed Node: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['type'] = 'date_plain';
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
-  /* Field: Indexed Node: Address */
-  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
-  $handler->display->display_options['fields']['field_address']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
-  $handler->display->display_options['fields']['field_address']['label'] = '';
-  $handler->display->display_options['fields']['field_address']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_address']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Indexed Node: Contact Email */
-  $handler->display->display_options['fields']['field_event_email']['id'] = 'field_event_email';
-  $handler->display->display_options['fields']['field_event_email']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_event_email']['field'] = 'field_event_email';
-  $handler->display->display_options['fields']['field_event_email']['label'] = '';
-  $handler->display->display_options['fields']['field_event_email']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_email']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Contact Telephone */
-  $handler->display->display_options['fields']['field_event_telephone']['id'] = 'field_event_telephone';
-  $handler->display->display_options['fields']['field_event_telephone']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['field_event_telephone']['field'] = 'field_event_telephone';
-  $handler->display->display_options['fields']['field_event_telephone']['label'] = '';
-  $handler->display->display_options['fields']['field_event_telephone']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_telephone']['click_sort_column'] = 'numbertype';
-  $handler->display->display_options['fields']['field_event_telephone']['settings'] = array(
-    'components' => array(
-      'country' => 0,
-      'numbertype' => 0,
-    ),
-    'full_hcard' => 0,
-    'as_tel_link' => 0,
-    'raw' => 1,
-    'allow_alpha' => 0,
-    'country_name_position' => 'after',
-    'numbertype_position' => 'before',
-  );
-  /* Field: Indexed Node: Title */
-  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['label'] = '';
-  $handler->display->display_options['fields']['title_field']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title_field']['alter']['text'] = '[title_field]<br />
-[field_event_date]<br />
-[field_address]<br />
-[field_event_telephone]<br />
-[field_event_email]<br />';
-  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'node/%/events/ical';
   $handler->display->display_options['displays'] = array(
     'master' => 'master',
@@ -375,6 +317,10 @@ Relevance Desc|Least relevant',
     t('Desc'),
     t('Select any filter and click on Apply to see results'),
     t('There are no results'),
+    t('Contact(s)'),
+    t('User'),
+    t('Email'),
+    t('Phones'),
     t('[title_field]<br />
 [field_event_date]<br />
 [field_address]<br />
