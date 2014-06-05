@@ -120,12 +120,11 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
-  /* Field: Field collection item: Cluster coordinator Email */
+  /* Field: Field collection item: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['relationship'] = 'field_users_ref';
-  $handler->display->display_options['fields']['field_email']['label'] = 'Email';
   /* Field: Field collection item: Phones */
   $handler->display->display_options['fields']['field_phones']['id'] = 'field_phones';
   $handler->display->display_options['fields']['field_phones']['table'] = 'entity_field_collection_item';
@@ -154,8 +153,9 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['title_field']['alter']['text'] = '[title_field]<br />
 [field_event_date]<br />
 [field_address]<br />
-[field_event_telephone]<br />
-[field_event_email]<br />';
+[field_user]<br />
+[field_phones] <br />
+[field_email]<br />';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
@@ -324,8 +324,9 @@ Relevance Desc|Least relevant',
     t('[title_field]<br />
 [field_event_date]<br />
 [field_address]<br />
-[field_event_telephone]<br />
-[field_event_email]<br />'),
+[field_user]<br />
+[field_phones] <br />
+[field_email]<br />'),
     t('Relevance'),
     t('All'),
     t('Search Events'),
@@ -392,7 +393,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['order'] = 'DESC';
-  /* Contextual filter: Content: Groups audience (og_group_ref) */
+  /* Contextual filter: Content: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -436,7 +437,7 @@ Relevance Desc|Least relevant',
     'hr_event' => 'hr_event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Groups audience (og_group_ref) */
+  /* Filter criterion: Content: Space(s) (og_group_ref) */
   $handler->display->display_options['filters']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['filters']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['filters']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';

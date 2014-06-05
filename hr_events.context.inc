@@ -57,12 +57,6 @@ function hr_events_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
-        'mefibs-mefibs_hr_events--master--sorts' => array(
-          'module' => 'mefibs',
-          'delta' => 'mefibs_hr_events--master--sorts',
-          'region' => 'sidebar_first',
-          'weight' => '-5',
-        ),
       ),
     ),
   );
@@ -119,12 +113,6 @@ function hr_events_context_default_contexts() {
           'delta' => 'w7XuwcVu1l6DNu4aCenMydri96KBLxYh',
           'region' => 'sidebar_first',
           'weight' => '-7',
-        ),
-        'mefibs-mefibs_hr_events--list--sorts' => array(
-          'module' => 'mefibs',
-          'delta' => 'mefibs_hr_events--list--sorts',
-          'region' => 'sidebar_first',
-          'weight' => '-4',
         ),
       ),
     ),
