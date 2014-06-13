@@ -13,6 +13,28 @@ function hr_events_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'hr_events_space';
+  $context->description = 'Events page per space';
+  $context->tag = 'Events';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'hr_events_calendar' => 'hr_events_calendar',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Events');
+  t('Events page per space');
+  $export['hr_events_space'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'hr_events_space_list';
   $context->description = 'Events list per space';
   $context->tag = 'Events';
