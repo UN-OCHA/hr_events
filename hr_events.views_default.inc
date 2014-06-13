@@ -120,7 +120,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
-  /* Field: Field collection item: Email */
+  /* Field: Field collection item: Cluster coordinator Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -162,7 +162,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Indexed Node: Space(s) */
+  /* Contextual filter: Indexed Node: Groups audience */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -243,7 +243,7 @@ Relevance Desc|Least relevant',
     t('There are no results'),
     t('Contact(s)'),
     t('User'),
-    t('Email'),
+    t('Cluster coordinator Email'),
     t('Phones'),
     t('[title_field]<br />
 [field_event_date]<br />
@@ -906,21 +906,24 @@ Relevance Desc|Least relevant',
     1 => 0,
     30037204 => 0,
   );
-  /* Filter criterion: Content: Clusters/Sectors (field_bundles) */
-  $handler->display->display_options['filters']['field_bundles_target_id']['id'] = 'field_bundles_target_id';
-  $handler->display->display_options['filters']['field_bundles_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['filters']['field_bundles_target_id']['field'] = 'field_bundles_target_id';
-  $handler->display->display_options['filters']['field_bundles_target_id']['group'] = 1;
-  $handler->display->display_options['filters']['field_bundles_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_bundles_target_id']['expose']['operator_id'] = 'field_bundles_target_id_op';
-  $handler->display->display_options['filters']['field_bundles_target_id']['expose']['label'] = 'Clusters/Sectors';
-  $handler->display->display_options['filters']['field_bundles_target_id']['expose']['operator'] = 'field_bundles_target_id_op';
-  $handler->display->display_options['filters']['field_bundles_target_id']['expose']['identifier'] = 'field_bundles_target_id';
-  $handler->display->display_options['filters']['field_bundles_target_id']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Clusters/Sectors (field_bundles) (reference filter) */
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['id'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['field'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group'] = 1;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator_id'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['label'] = 'Clusters/Sectors';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['identifier'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    200153887 => 0,
+    235660466 => 0,
     30037204 => 0,
   );
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['reference_display'] = 'hr_bundles:entityreference_1';
   /* Filter criterion: Content: Coordination hubs (field_coordination_hubs) */
   $handler->display->display_options['filters']['field_coordination_hubs_target_id']['id'] = 'field_coordination_hubs_target_id';
   $handler->display->display_options['filters']['field_coordination_hubs_target_id']['table'] = 'field_data_field_coordination_hubs';
