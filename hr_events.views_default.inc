@@ -90,7 +90,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_event_date']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'hr_2',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -314,7 +314,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'hr_2',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -636,7 +636,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'hr_2',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -834,7 +834,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_event_date']['label'] = '';
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'medium',
+    'format_type' => 'hr_2',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',

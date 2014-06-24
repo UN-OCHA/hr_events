@@ -323,7 +323,7 @@ function hr_events_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(
-        'format_type' => 'hr_1',
+        'format_type' => 'hr_2',
         'multiple_number' => '',
         'multiple_from' => '',
         'multiple_to' => '',
