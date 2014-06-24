@@ -408,6 +408,22 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['filters']['type']['value'] = array(
     'hr_event' => 'hr_event',
   );
+  /* Filter criterion: Content: Coordination hubs (field_coordination_hubs) (reference filter) */
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['id'] = 'field_coordination_hubs_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['table'] = 'field_data_field_coordination_hubs';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['field'] = 'field_coordination_hubs_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['operator_id'] = 'field_coordination_hubs_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['label'] = 'Coordination hubs';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['operator'] = 'field_coordination_hubs_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['identifier'] = 'field_coordination_hubs_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+  );
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['reference_display'] = 'hr_offices_panes:entityreference_1';
 
   /* Display: Master */
   $handler = $view->new_display('page', 'Master', 'master');
@@ -786,6 +802,7 @@ Relevance Desc|Least relevant',
     t('Desc'),
     t('field collection item from field_users_ref'),
     t('All'),
+    t('Coordination hubs'),
     t('Month'),
     t('Week'),
     t('Day'),
@@ -835,9 +852,9 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
     'format_type' => 'hr_2',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
+    'fromto' => 'value',
+    'multiple_number' => '1',
+    'multiple_from' => 'now',
     'multiple_to' => '',
     'show_repeat_rule' => 'hide',
   );
