@@ -120,7 +120,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
-  /* Field: Field collection item: Cluster coordinator Email */
+  /* Field: Field collection item: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -243,7 +243,7 @@ Relevance Desc|Least relevant',
     t('There are no results'),
     t('Contact(s)'),
     t('User'),
-    t('Cluster coordinator Email'),
+    t('Email'),
     t('Phones'),
     t('[title_field]<br />
 [field_event_date]<br />
@@ -424,6 +424,30 @@ Relevance Desc|Least relevant',
     200153887 => 0,
   );
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['reference_display'] = 'hr_offices_panes:entityreference_1';
+  /* Filter criterion: Content: Clusters/Sectors (field_bundles) (reference filter) */
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['id'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['field'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator_id'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['label'] = 'Clusters/Sectors';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['identifier'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+  );
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['label'] = 'Clusters/Sectors (field_bundles) (reference filter)';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['identifier'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['reference_display'] = 'hr_bundles:entityreference_1';
 
   /* Display: Master */
   $handler = $view->new_display('page', 'Master', 'master');
@@ -803,6 +827,8 @@ Relevance Desc|Least relevant',
     t('field collection item from field_users_ref'),
     t('All'),
     t('Coordination hubs'),
+    t('Clusters/Sectors'),
+    t('Clusters/Sectors (field_bundles) (reference filter)'),
     t('Month'),
     t('Week'),
     t('Day'),

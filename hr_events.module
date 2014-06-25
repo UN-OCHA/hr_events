@@ -51,3 +51,33 @@ function hr_events_og_features_toggle($entity, $entity_id, $entity_type, $featur
 
 }
 
+
+/**
+ * Implements hook_views_query_alter()
+ * Makes the clusters/sectors filter of the calendar work
+ * Related issue: https://www.drupal.org/node/2291619
+ */
+function hr_events_views_query_alter(&$view, &$query) {
+  if ($view->name == 'hr_events_calendar') {
+    $add_join = FALSE;
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        // If we are filtering the calendar by cluster/sector
+        if ($condition['field'] == 'og_membership.gid' && $condition['operator'] == 'in') {
+          $condition['field'] = 'og_membership2.gid';
+          $add_join = TRUE;
+        }
+      }
+    }
+    // Then add a join to og_membership to the query
+    if ($add_join) {
+      $join = new views_join;
+      $join->construct('og_membership',
+          'node',  // left table
+          'nid',   // left field
+          'etid'   // field
+      );
+      $view->query->add_relationship('og_membership2',$join,'node');
+    }
+  }
+}
