@@ -858,12 +858,12 @@ Relevance Desc|Least relevant',
     'multiple_to' => '',
     'show_repeat_rule' => 'hide',
   );
+  $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
   /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['order'] = 'DESC';
   /* Contextual filter: Content: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
@@ -1016,13 +1016,15 @@ Relevance Desc|Least relevant',
     1 => 0,
     30037204 => 0,
   );
-  /* Filter criterion: Content: Date -  start date (field_event_date) */
-  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_event_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
+  /* Filter criterion: Date: Date (node) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'node';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = '>=';
+  $handler->display->display_options['filters']['date_filter']['default_date'] = 'now';
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  );
   $handler->display->display_options['pane_title'] = 'Upcoming Events';
   $handler->display->display_options['pane_category']['name'] = 'Events';
   $handler->display->display_options['pane_category']['weight'] = '0';
