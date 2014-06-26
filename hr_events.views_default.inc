@@ -120,7 +120,7 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
-  /* Field: Field collection item: Cluster coordinator Email */
+  /* Field: Field collection item: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -243,7 +243,7 @@ Relevance Desc|Least relevant',
     t('There are no results'),
     t('Contact(s)'),
     t('User'),
-    t('Cluster coordinator Email'),
+    t('Email'),
     t('Phones'),
     t('[title_field]<br />
 [field_event_date]<br />
@@ -424,6 +424,30 @@ Relevance Desc|Least relevant',
     200153887 => 0,
   );
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['reference_display'] = 'hr_offices_panes:entityreference_1';
+  /* Filter criterion: Content: Clusters/Sectors (field_bundles) (reference filter) */
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['id'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['field'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator_id'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['label'] = 'Clusters/Sectors';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator'] = 'field_bundles_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['identifier'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+  );
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['label'] = 'Clusters/Sectors (field_bundles) (reference filter)';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['identifier'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['reference_display'] = 'hr_bundles:entityreference_1';
 
   /* Display: Master */
   $handler = $view->new_display('page', 'Master', 'master');
@@ -803,6 +827,8 @@ Relevance Desc|Least relevant',
     t('field collection item from field_users_ref'),
     t('All'),
     t('Coordination hubs'),
+    t('Clusters/Sectors'),
+    t('Clusters/Sectors (field_bundles) (reference filter)'),
     t('Month'),
     t('Week'),
     t('Day'),
@@ -858,12 +884,12 @@ Relevance Desc|Least relevant',
     'multiple_to' => '',
     'show_repeat_rule' => 'hide',
   );
+  $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
   /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['order'] = 'DESC';
   /* Contextual filter: Content: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
@@ -1016,13 +1042,15 @@ Relevance Desc|Least relevant',
     1 => 0,
     30037204 => 0,
   );
-  /* Filter criterion: Content: Date -  start date (field_event_date) */
-  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_event_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
+  /* Filter criterion: Date: Date (node) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'node';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = '>=';
+  $handler->display->display_options['filters']['date_filter']['default_date'] = 'now';
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  );
   $handler->display->display_options['pane_title'] = 'Upcoming Events';
   $handler->display->display_options['pane_category']['name'] = 'Events';
   $handler->display->display_options['pane_category']['weight'] = '0';
