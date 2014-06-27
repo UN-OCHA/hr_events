@@ -136,6 +136,7 @@ features[variable][] = node_preview_hr_event
 features[variable][] = node_submitted_hr_event
 features[variable][] = panelizer_defaults_node_hr_event
 features[variable][] = pathauto_node_hr_event_pattern
+features[variable][] = publishcontent_hr_event
 features[views_view][] = hr_events
 features[views_view][] = hr_events_calendar
 features[views_view][] = hr_events_panes
