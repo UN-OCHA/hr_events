@@ -84,6 +84,18 @@ function hr_events_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-6',
         ),
+        'facetapi-hSnBts4Ap4yrSjQu7LKhsVdrHxAjyYKU' => array(
+          'module' => 'facetapi',
+          'delta' => 'hSnBts4Ap4yrSjQu7LKhsVdrHxAjyYKU',
+          'region' => 'sidebar_first',
+          'weight' => '-5',
+        ),
+        'facetapi-9GGN5HfHaQpjLAfMWHJknvdGmR74ha9v' => array(
+          'module' => 'facetapi',
+          'delta' => '9GGN5HfHaQpjLAfMWHJknvdGmR74ha9v',
+          'region' => 'sidebar_first',
+          'weight' => '-4',
+        ),
       ),
     ),
   );
