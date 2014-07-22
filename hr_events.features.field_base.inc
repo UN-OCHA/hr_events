@@ -107,6 +107,9 @@ function hr_events_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_date',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -127,7 +130,7 @@ function hr_events_field_default_field_bases() {
       'repeat' => 1,
       'timezone_db' => 'UTC',
       'todate' => 'optional',
-      'tz_handling' => 'user',
+      'tz_handling' => 'utc',
     ),
     'translatable' => 0,
     'type' => 'datetime',
