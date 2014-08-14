@@ -34,7 +34,6 @@ dependencies[] = hr_themes
 dependencies[] = hr_users
 dependencies[] = link
 dependencies[] = list
-dependencies[] = mefibs
 dependencies[] = og
 dependencies[] = og_moderation
 dependencies[] = og_ui

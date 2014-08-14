@@ -44,7 +44,6 @@ Relevance Desc|Least relevant',
         'reset_label' => '',
         'is_secondary' => 0,
       ),
-      'mefibs_block_sort_bef' => 'sorts',
     ),
     'search_api_views_fulltext' => array(
       'bef_format' => 'default',
@@ -209,22 +208,6 @@ Relevance Desc|Least relevant',
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['mefibs'] = array(
-    'blocks' => array(
-      0 => array(
-        'name' => 'Sorts',
-        'machine_name' => 'sorts',
-      ),
-    ),
-    'extras' => array(
-      'sort' => NULL,
-      'items_per_page' => NULL,
-    ),
-    'list' => array(
-      'sort_block' => 'sorts',
-      'filter' => array(),
-    ),
-  );
   $handler->display->display_options['path'] = 'node/%/events/list';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'List';
