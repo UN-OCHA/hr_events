@@ -3,7 +3,6 @@ description = Provides the Event content type
 core = 7.x
 package = Humanitarianresponse
 dependencies[] = addressfield
-dependencies[] = better_exposed_filters
 dependencies[] = calendar
 dependencies[] = context
 dependencies[] = ctools
