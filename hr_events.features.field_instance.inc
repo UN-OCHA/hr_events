@@ -487,7 +487,7 @@ function hr_events_field_default_field_instances() {
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
-        'repeat_collapsed' => 0,
+        'repeat_collapsed' => 1,
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
