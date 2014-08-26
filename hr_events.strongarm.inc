@@ -41,7 +41,7 @@ function hr_events_strongarm() {
           'weight' => '23',
         ),
         'language' => array(
-          'weight' => '22',
+          'weight' => '-10',
         ),
       ),
       'display' => array(),
