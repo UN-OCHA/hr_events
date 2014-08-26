@@ -48,4 +48,3 @@ function hr_events_node_info() {
   );
   return $items;
 }
-

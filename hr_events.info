@@ -123,6 +123,7 @@ features[panelizer_defaults][] = node:hr_event:default:default
 features[panelizer_defaults][] = node:hr_event:default:search_result
 features[panelizer_defaults][] = node:hr_event:default:teaser
 features[taxonomy][] = hr_event_category
+features[variable][] = entity_translation_settings_node__hr_event
 features[variable][] = field_bundle_settings_node__hr_event
 features[variable][] = language_content_type_hr_event
 features[variable][] = menu_options_hr_event
