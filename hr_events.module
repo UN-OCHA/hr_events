@@ -81,3 +81,25 @@ function hr_events_views_query_alter(&$view, &$query) {
     }
   }
 }
+
+/**
+ * Implements hook_search_api_views_query_alter()
+ *
+ * Makes the events view available for disasters
+ */
+function hr_events_search_api_views_query_alter(&$view, &$query) {
+  if ($view->name == 'hr_events') {
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        if (reset($condition) == 'og_group_ref') {
+          $nid = $condition[1];
+          $node = node_load($nid);
+          if ($node->type == 'hr_disaster') {
+            $condition = array('field_disasters', $nid, '=');
+          }
+        }
+      }
+    }
+  }
+}
+
