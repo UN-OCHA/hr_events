@@ -69,6 +69,7 @@ function hr_events_views_query_alter(&$view, &$query) {
           $node = node_load($nid);
           if ($node->type == 'hr_disaster') {
             $condition = array('field' => 'node.field_disasters', 'value' => $nid, 'operator' => '=');
+            debug($condition);
           }
         }
         // If we are filtering the calendar by cluster/sector
