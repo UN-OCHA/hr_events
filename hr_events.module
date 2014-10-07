@@ -55,6 +55,7 @@ function hr_events_og_features_toggle($entity, $entity_id, $entity_type, $featur
 /**
  * Implements hook_views_query_alter()
  * Makes the clusters/sectors filter of the calendar work
+ * Makes the calendar view available to disasters
  * Related issue: https://www.drupal.org/node/2291619
  */
 function hr_events_views_query_alter(&$view, &$query) {
@@ -62,7 +63,14 @@ function hr_events_views_query_alter(&$view, &$query) {
     $add_join = FALSE;
     foreach ($query->where as &$condition_group) {
       foreach ($condition_group['conditions'] as &$condition) {
-        debug($condition);
+        // Makes the calendar view available to disasters
+        if ($condition['field'] == 'og_membership.gid = :og_membership_og_group_ref_target_id2' && $condition['operator'] == 'formula') {
+          $nid = $condition['value'][':og_membership_og_group_ref_target_id2'];
+          $node = node_load($nid);
+          if ($node->type == 'hr_disaster') {
+            $condition = array('field_disasters', $nid, '=');
+          }
+        }
         // If we are filtering the calendar by cluster/sector
         if ($condition['field'] == 'og_membership.gid' && $condition['operator'] == 'in') {
           $condition['field'] = 'og_membership2.gid';
