@@ -65,7 +65,7 @@ function hr_events_views_query_alter(&$view, &$query) {
       foreach ($condition_group['conditions'] as &$condition) {
         // Makes the calendar view available to disasters
         debug($condition);
-        if ($condition['field'] == 'og_membership.gid = :og_membership_og_group_ref_target_id2' && $condition['operator'] == 'formula') {
+        if ($condition['field'] == 'og_membership.gid = :og_membership_og_group_ref_target_id2 ' && $condition['operator'] == 'formula') {
           debug($condition);
           $nid = $condition['value'][':og_membership_og_group_ref_target_id2'];
           $node = node_load($nid);
