@@ -68,7 +68,7 @@ function hr_events_views_query_alter(&$view, &$query) {
           $nid = $condition['value'][':og_membership_og_group_ref_target_id2'];
           $node = node_load($nid);
           if ($node->type == 'hr_disaster') {
-            $condition = array('field_disasters', $nid, '=');
+            $condition = array('field' => 'node.field_disasters', 'value' => $nid, 'operator' => '=');
           }
         }
         // If we are filtering the calendar by cluster/sector
