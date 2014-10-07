@@ -87,7 +87,7 @@ function hr_events_views_query_alter(&$view, &$query) {
  *
  * Makes the calendar view available for disasters
  */
-function hr_events_views_query_alter(&$view, $query) {
+function hr_events_views_query_alter(&$view, &$query) {
   if ($view->name == 'hr_events_calendar') {
     debug($query->where);
   }
