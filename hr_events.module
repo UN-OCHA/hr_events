@@ -64,6 +64,7 @@ function hr_events_views_query_alter(&$view, &$query) {
       foreach ($condition_group['conditions'] as &$condition) {
         // If we are filtering the calendar by cluster/sector
         if ($condition['field'] == 'og_membership.gid' && $condition['operator'] == 'in') {
+          debug($condition);
           $condition['field'] = 'og_membership2.gid';
           $add_join = TRUE;
         }
@@ -79,17 +80,6 @@ function hr_events_views_query_alter(&$view, &$query) {
       );
       $view->query->add_relationship('og_membership2',$join,'node');
     }
-  }
-}
-
-/**
- * Implements hook_views_query_alter()
- *
- * Makes the calendar view available for disasters
- */
-function hr_events_views_query_alter(&$view, &$query) {
-  if ($view->name == 'hr_events_calendar') {
-    debug($query->where);
   }
 }
 
