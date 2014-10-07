@@ -83,6 +83,17 @@ function hr_events_views_query_alter(&$view, &$query) {
 }
 
 /**
+ * Implements hook_views_query_alter()
+ *
+ * Makes the calendar view available for disasters
+ */
+function hr_events_views_query_alter(&$view, $query) {
+  if ($view->name == 'hr_events_calendar') {
+    debug($query->where);
+  }
+}
+
+/**
  * Implements hook_search_api_views_query_alter()
  *
  * Makes the events view available for disasters
