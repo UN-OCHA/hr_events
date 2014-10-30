@@ -624,37 +624,6 @@ function hr_events_panelizer_defaults() {
     $pane->uuid = '90e3ff4b-04e7-4229-90c2-ebb3f4614629';
     $display->content['new-90e3ff4b-04e7-4229-90c2-ebb3f4614629'] = $pane;
     $display->panels['sidebar'][10] = 'new-90e3ff4b-04e7-4229-90c2-ebb3f4614629';
-    $pane = new stdClass();
-    $pane->pid = 'new-acb9ff6c-4612-4a66-bc8d-54cf3818239f';
-    $pane->panel = 'sidebar';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_funding_types';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'entityreference_label',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'link' => 0,
-      ),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 11;
-    $pane->locks = array();
-    $pane->uuid = 'acb9ff6c-4612-4a66-bc8d-54cf3818239f';
-    $display->content['new-acb9ff6c-4612-4a66-bc8d-54cf3818239f'] = $pane;
-    $display->panels['sidebar'][11] = 'new-acb9ff6c-4612-4a66-bc8d-54cf3818239f';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
