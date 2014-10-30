@@ -124,7 +124,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Indexed Node: Space(s) */
+  /* Contextual filter: Indexed Node: Groups audience */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -957,21 +957,28 @@ function hr_events_views_default_views() {
     1 => 0,
     30037204 => 0,
   );
-  /* Filter criterion: Field: Themes (field_themes) */
-  $handler->display->display_options['filters']['field_themes_target_id']['id'] = 'field_themes_target_id';
-  $handler->display->display_options['filters']['field_themes_target_id']['table'] = 'field_data_field_themes';
-  $handler->display->display_options['filters']['field_themes_target_id']['field'] = 'field_themes_target_id';
-  $handler->display->display_options['filters']['field_themes_target_id']['group'] = 1;
-  $handler->display->display_options['filters']['field_themes_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_themes_target_id']['expose']['operator_id'] = 'field_themes_target_id_op';
-  $handler->display->display_options['filters']['field_themes_target_id']['expose']['label'] = 'Themes';
-  $handler->display->display_options['filters']['field_themes_target_id']['expose']['operator'] = 'field_themes_target_id_op';
-  $handler->display->display_options['filters']['field_themes_target_id']['expose']['identifier'] = 'field_themes_target_id';
-  $handler->display->display_options['filters']['field_themes_target_id']['expose']['remember_roles'] = array(
+  /* Filter criterion: Field: Themes (field_themes) (reference filter) */
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['id'] = 'field_themes_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['table'] = 'field_data_field_themes';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['field'] = 'field_themes_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['group'] = 1;
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['expose']['operator_id'] = 'field_themes_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['expose']['label'] = 'Themes';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['expose']['operator'] = 'field_themes_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['expose']['identifier'] = 'field_themes_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+    229782242 => 0,
+    147444660 => 0,
   );
+  $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['reference_display'] = 'hr_themes:entityreference_1';
   /* Filter criterion: Content: Event Category (field_event_category) */
   $handler->display->display_options['filters']['field_event_category_target_id']['id'] = 'field_event_category_target_id';
   $handler->display->display_options['filters']['field_event_category_target_id']['table'] = 'field_data_field_event_category';
@@ -992,6 +999,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = '>=';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['default_date'] = 'now';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
