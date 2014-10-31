@@ -606,6 +606,60 @@ function hr_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-hr_event-field_fundings'
+  $field_instances['node-hr_event-field_fundings'] = array(
+    'bundle' => 'hr_event',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 23,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fundings',
+    'label' => 'Fundings',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
+      'type' => 'options_select',
+      'weight' => 17,
+    ),
+  );
+
   // Exported field_instance: 'node-hr_event-field_location'
   $field_instances['node-hr_event-field_location'] = array(
     'bundle' => 'hr_event',
@@ -1187,8 +1241,8 @@ function hr_events_field_default_field_instances() {
   t('Date');
   t('Disasters');
   t('Event Category');
-  t('Funding Types');
   t('Funding methods');
+  t('Fundings');
   t('Global Clusters');
   t('Group content visibility');
   t('Location');

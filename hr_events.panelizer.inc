@@ -563,6 +563,37 @@ function hr_events_panelizer_defaults() {
     $display->content['new-0fc87ab3-ae94-4d56-9c5d-e31ac89b9f20'] = $pane;
     $display->panels['sidebar'][8] = 'new-0fc87ab3-ae94-4d56-9c5d-e31ac89b9f20';
     $pane = new stdClass();
+    $pane->pid = 'new-b53b57ce-49d3-4db2-9763-bad24b7f2750';
+    $pane->panel = 'sidebar';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_fundings';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'above',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 0,
+      ),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->locks = array();
+    $pane->uuid = 'b53b57ce-49d3-4db2-9763-bad24b7f2750';
+    $display->content['new-b53b57ce-49d3-4db2-9763-bad24b7f2750'] = $pane;
+    $display->panels['sidebar'][9] = 'new-b53b57ce-49d3-4db2-9763-bad24b7f2750';
+    $pane = new stdClass();
     $pane->pid = 'new-0c756f5c-1635-4dd2-a7c1-b6aa90523816';
     $pane->panel = 'sidebar';
     $pane->type = 'entity_field';
@@ -588,11 +619,11 @@ function hr_events_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 10;
     $pane->locks = array();
     $pane->uuid = '0c756f5c-1635-4dd2-a7c1-b6aa90523816';
     $display->content['new-0c756f5c-1635-4dd2-a7c1-b6aa90523816'] = $pane;
-    $display->panels['sidebar'][9] = 'new-0c756f5c-1635-4dd2-a7c1-b6aa90523816';
+    $display->panels['sidebar'][10] = 'new-0c756f5c-1635-4dd2-a7c1-b6aa90523816';
     $pane = new stdClass();
     $pane->pid = 'new-90e3ff4b-04e7-4229-90c2-ebb3f4614629';
     $pane->panel = 'sidebar';
@@ -619,11 +650,11 @@ function hr_events_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 11;
     $pane->locks = array();
     $pane->uuid = '90e3ff4b-04e7-4229-90c2-ebb3f4614629';
     $display->content['new-90e3ff4b-04e7-4229-90c2-ebb3f4614629'] = $pane;
-    $display->panels['sidebar'][10] = 'new-90e3ff4b-04e7-4229-90c2-ebb3f4614629';
+    $display->panels['sidebar'][11] = 'new-90e3ff4b-04e7-4229-90c2-ebb3f4614629';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
