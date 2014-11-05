@@ -825,7 +825,7 @@ function hr_events_views_default_views() {
     'format_type' => 'hr_2',
     'fromto' => 'value',
     'multiple_number' => '1',
-    'multiple_from' => 'now',
+    'multiple_from' => '',
     'multiple_to' => '',
     'show_repeat_rule' => 'hide',
   );
