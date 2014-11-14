@@ -96,6 +96,12 @@ function hr_events_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-4',
         ),
+        'facetapi-ufw6LRur6Vw9VcpuZ4VayzbcSrlX1VMS' => array(
+          'module' => 'facetapi',
+          'delta' => 'ufw6LRur6Vw9VcpuZ4VayzbcSrlX1VMS',
+          'region' => 'sidebar_first',
+          'weight' => '-3',
+        ),
       ),
     ),
   );
