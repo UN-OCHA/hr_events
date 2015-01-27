@@ -119,3 +119,11 @@ function hr_events_search_api_views_query_alter(&$view, &$query) {
   }
 }
 
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function hr_events_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'restful') {
+    return 'plugins/' . $plugin;
+  }
+}
