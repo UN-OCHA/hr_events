@@ -65,16 +65,6 @@ function hr_events_field_default_field_instances() {
   // Exported field_instance: 'node-hr_event-field_address'
   $field_instances['node-hr_event-field_address'] = array(
     'bundle' => 'hr_event',
-    'default_value' => array(
-      0 => array(
-        'element_key' => 'node|hr_event|field_address|und|0',
-        'thoroughfare' => '',
-        'premise' => '',
-        'postal_code' => '',
-        'locality' => '',
-        'country' => 'CH',
-      ),
-    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -124,6 +114,7 @@ function hr_events_field_default_field_instances() {
         'available_countries' => array(),
         'format_handlers' => array(
           'address' => 'address',
+          'address-optional' => 'address-optional',
           'address-hide-country' => 0,
           'organisation' => 0,
           'name-full' => 0,
