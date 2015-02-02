@@ -11,6 +11,74 @@ function hr_events_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'hr_event_categories';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Event categories';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'hr_event_category' => 'hr_event_category',
+  );
+
+  /* Display: Entity Reference */
+  $handler = $view->new_display('entityreference', 'Entity Reference', 'entityreference_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'name' => 'name',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $translatables['hr_event_categories'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Entity Reference'),
+  );
+  $export['hr_event_categories'] = $view;
+
+  $view = new view();
   $view->name = 'hr_events';
   $view->description = '';
   $view->tag = 'Documents';
@@ -82,7 +150,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['fields']['field_user']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_user']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_user']['bypass_access'] = 0;
-  /* Field: Field collection item: Cluster coordinator Email */
+  /* Field: Field collection item: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'entity_field_collection_item';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -119,28 +187,26 @@ function hr_events_views_default_views() {
 [field_phones] <br />
 [field_email]<br />';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
-  /* Sort criterion: Indexed Node: Date created */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Indexed Node: Groups audience */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
-  /* Filter criterion: Indexed Node: Content type */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'hr_event' => 'hr_event',
   );
-  /* Filter criterion: Indexed Node: Status */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -188,7 +254,7 @@ function hr_events_views_default_views() {
     t('There are no results'),
     t('Contact(s)'),
     t('User'),
-    t('Cluster coordinator Email'),
+    t('Email'),
     t('Phones'),
     t('[title_field]<br />
 [field_event_date]<br />
@@ -393,6 +459,25 @@ function hr_events_views_default_views() {
     3 => array(),
   );
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['reference_display'] = 'hr_bundles:entityreference_1';
+  /* Filter criterion: Content: Event Category (field_event_category) (reference filter) */
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['id'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['table'] = 'field_data_field_event_category';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['field'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['operator_id'] = 'field_event_category_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['label'] = 'Event Category';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['operator'] = 'field_event_category_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['identifier'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['reference_display'] = 'hr_event_categories:entityreference_1';
 
   /* Display: Master */
   $handler = $view->new_display('page', 'Master', 'master');
@@ -774,6 +859,7 @@ function hr_events_views_default_views() {
     t('Coordination hubs'),
     t('Clusters/Sectors'),
     t('Clusters/Sectors (field_bundles) (reference filter)'),
+    t('Event Category'),
     t('Month'),
     t('Week'),
     t('Day'),
@@ -1026,6 +1112,7 @@ function hr_events_views_default_views() {
       'label' => 'Group',
     ),
   );
+
   $translatables['hr_events_panes'] = array(
     t('Master'),
     t('Upcoming Events'),

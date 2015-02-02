@@ -136,6 +136,7 @@ features[variable][] = pathauto_node_hr_event_pattern
 features[variable][] = publishcontent_hr_event
 features[views_view][] = hr_events
 features[views_view][] = hr_events_calendar
+features[views_view][] = hr_events_categories
 features[views_view][] = hr_events_panes
 features_exclude[dependencies][hr_operations] = hr_operations
 features_exclude[dependencies][page_manager] = page_manager
