@@ -410,7 +410,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -419,10 +419,12 @@ function hr_events_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'hr_event' => 'hr_event',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Coordination hubs (field_coordination_hubs) (reference filter) */
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['id'] = 'field_coordination_hubs_target_id_entityreference_filter';
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['table'] = 'field_data_field_coordination_hubs';
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['field'] = 'field_coordination_hubs_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['group'] = 1;
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['operator_id'] = 'field_coordination_hubs_target_id_entityreference_filter_op';
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['expose']['label'] = 'Coordination hubs';
@@ -435,10 +437,32 @@ function hr_events_views_default_views() {
     200153887 => 0,
   );
   $handler->display->display_options['filters']['field_coordination_hubs_target_id_entityreference_filter']['reference_display'] = 'hr_offices_panes:entityreference_1';
+  /* Filter criterion: Field: Location (field_location) (reference filter) */
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['id'] = 'field_location_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['table'] = 'field_data_field_location';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['field'] = 'field_location_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['group'] = 1;
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['expose']['operator_id'] = 'field_location_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['expose']['label'] = 'Location';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['expose']['operator'] = 'field_location_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['expose']['identifier'] = 'field_location_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['reference_display'] = 'hr_locations:admin1';
+  $handler->display->display_options['filters']['field_location_target_id_entityreference_filter']['reference_arguments'] = '!3';
   /* Filter criterion: Content: Clusters/Sectors (field_bundles) (reference filter) */
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['id'] = 'field_bundles_target_id_entityreference_filter';
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['table'] = 'og_membership';
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['field'] = 'field_bundles_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['group'] = 1;
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['operator_id'] = 'field_bundles_target_id_entityreference_filter_op';
   $handler->display->display_options['filters']['field_bundles_target_id_entityreference_filter']['expose']['label'] = 'Clusters/Sectors';
@@ -463,6 +487,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['id'] = 'field_event_category_target_id_entityreference_filter';
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['table'] = 'field_data_field_event_category';
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['field'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['group'] = 1;
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['operator_id'] = 'field_event_category_target_id_entityreference_filter_op';
   $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['label'] = 'Event Category';
@@ -519,6 +544,24 @@ function hr_events_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
   );
+  /* Contextual filter: Content: Country (field_country) */
+  $handler->display->display_options['arguments']['field_country_target_id']['id'] = 'field_country_target_id';
+  $handler->display->display_options['arguments']['field_country_target_id']['table'] = 'field_data_field_country';
+  $handler->display->display_options['arguments']['field_country_target_id']['field'] = 'field_country_target_id';
+  $handler->display->display_options['arguments']['field_country_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_country_target_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_country_target_id']['default_argument_options']['code'] = '$context = og_context();
+if (isset($context[\'gid\'])) {
+  $group = node_load($context[\'gid\']);
+  if ($group->type == \'hr_operation\' && !empty($group->field_country)) {
+    return $group->field_country[LANGUAGE_NONE][0][\'target_id\'];
+  }
+}
+return 0;';
+  $handler->display->display_options['arguments']['field_country_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_country_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_country_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_country_target_id']['not'] = TRUE;
   $handler->display->display_options['path'] = 'node/%/events';
   $handler->display->display_options['menu']['title'] = 'Month';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -857,6 +900,7 @@ function hr_events_views_default_views() {
     t('field collection item from field_users_ref'),
     t('All'),
     t('Coordination hubs'),
+    t('Location'),
     t('Clusters/Sectors'),
     t('Clusters/Sectors (field_bundles) (reference filter)'),
     t('Event Category'),
@@ -871,6 +915,7 @@ function hr_events_views_default_views() {
   );
   $export['hr_events_calendar'] = $view;
 
+  
   $view = new view();
   $view->name = 'hr_events_panes';
   $view->description = '';
