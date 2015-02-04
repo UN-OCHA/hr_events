@@ -13,7 +13,7 @@ function hr_events_views_default_views() {
   $view = new view();
   $view->name = 'hr_event_categories';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'events';
   $view->base_table = 'taxonomy_term_data';
   $view->human_name = 'Event categories';
   $view->core = 7;
@@ -81,7 +81,7 @@ function hr_events_views_default_views() {
   $view = new view();
   $view->name = 'hr_events';
   $view->description = '';
-  $view->tag = 'Documents';
+  $view->tag = 'events';
   $view->base_table = 'search_api_index_default_node_index';
   $view->human_name = 'Events';
   $view->core = 7;
@@ -278,7 +278,7 @@ function hr_events_views_default_views() {
   $view = new view();
   $view->name = 'hr_events_calendar';
   $view->description = '';
-  $view->tag = 'Calendar';
+  $view->tag = 'events';
   $view->base_table = 'node';
   $view->human_name = 'Calendar';
   $view->core = 7;
@@ -919,7 +919,7 @@ return 0;';
   $view = new view();
   $view->name = 'hr_events_panes';
   $view->description = '';
-  $view->tag = 'Documents';
+  $view->tag = 'events';
   $view->base_table = 'node';
   $view->human_name = 'Events Panes';
   $view->core = 7;
@@ -1155,6 +1155,85 @@ return 0;';
       'panel' => '0',
       'fixed' => '',
       'label' => 'Group',
+    ),
+  );
+
+    /* Display: Upcoming from context */
+  $handler = $view->new_display('panel_pane', 'Upcoming from context', 'upcoming_from_context');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Clusters/Sectors (field_bundles) */
+  $handler->display->display_options['arguments']['field_bundles_target_id']['id'] = 'field_bundles_target_id';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['field'] = 'field_bundles_target_id';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_bundles_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'hr_event' => 'hr_event',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Date: Date (node) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'node';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = '>=';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
+  $handler->display->display_options['filters']['date_filter']['default_date'] = 'now';
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  );
+  $handler->display->display_options['pane_title'] = 'Upcoming Events from context';
+  $handler->display->display_options['pane_category']['name'] = 'Events';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 'more_link';
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['fields_override'] = 'fields_override';
+  $handler->display->display_options['argument_input'] = array(
+    'og_group_ref_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Group',
+    ),
+    'field_bundles_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Clusters/Sectors (field_bundles)',
     ),
   );
 
