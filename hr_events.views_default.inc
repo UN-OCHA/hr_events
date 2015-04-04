@@ -187,26 +187,26 @@ function hr_events_views_default_views() {
 [field_phones] <br />
 [field_email]<br />';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
-  /* Sort criterion: Broken/missing handler */
+  /* Sort criterion: Indexed Node: Date created */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Broken/missing handler */
+  /* Contextual filter: Indexed Node: Space(s) */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
-  /* Filter criterion: Broken/missing handler */
+  /* Filter criterion: Indexed Node: Content type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'hr_event' => 'hr_event',
   );
-  /* Filter criterion: Broken/missing handler */
+  /* Filter criterion: Indexed Node: Status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -288,6 +288,7 @@ function hr_events_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('Global'),
   );
   $export['hr_events'] = $view;
 
@@ -412,7 +413,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -540,7 +541,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['row_options']['colors']['legend'] = 'type';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -607,7 +608,7 @@ return 0;';
   $handler->display->display_options['row_options']['colors']['legend'] = 'type';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -655,7 +656,7 @@ return 0;';
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -702,7 +703,7 @@ return 0;';
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -775,7 +776,7 @@ return 0;';
   $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -1101,6 +1102,245 @@ return 0;';
   $handler->display->display_options['tab_options']['title'] = 'Calendar';
   $handler->display->display_options['tab_options']['weight'] = '0';
 
+  /* Display: Print Week */
+  $handler = $view->new_display('page', 'Print Week', 'print_week');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'date_views_pager';
+  $handler->display->display_options['pager']['options']['date_id'] = 'week';
+  $handler->display->display_options['pager']['options']['link_format'] = 'clean';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_event_date' => 'field_event_date',
+    'field_address' => 'field_address',
+    'field_user' => 'field_user',
+    'field_users_ref_name' => 'field_users_ref_name',
+    'field_phones' => 'field_phones',
+    'field_email' => 'field_email',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_event_date' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_address' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_user' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_users_ref_name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_phones' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_email' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="pull-left">
+  <span class="badge badge-rrule">D</span> every Day <span class="badge badge-rrule">W</span> every Week <span class="badge badge-rrule">M</span> every Month
+</div>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
+    'format_type' => 'hr_1',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'hide',
+  );
+  $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_event_date_2']['id'] = 'field_event_date_2';
+  $handler->display->display_options['fields']['field_event_date_2']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_2']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_2']['label'] = 'Rep';
+  $handler->display->display_options['fields']['field_event_date_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_event_date_2']['alter']['text'] = '[field_event_date_2-rrule]';
+  $handler->display->display_options['fields']['field_event_date_2']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+  );
+  $handler->display->display_options['fields']['field_event_date_2']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_2']['delta_offset'] = '0';
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
+  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['label'] = 'Time';
+  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
+    'format_type' => 'hr_time',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'hide',
+  );
+  $handler->display->display_options['fields']['field_event_date_1']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_1']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Name of the meeting';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Address */
+  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
+  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['label'] = 'Location';
+  $handler->display->display_options['fields']['field_address']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_address']['alter']['text'] = '[field_address-thoroughfare] [field_address-premise] - [field_address-locality]';
+  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_address']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
+  );
+  /* Field: Field collection item: User */
+  $handler->display->display_options['fields']['field_user']['id'] = 'field_user';
+  $handler->display->display_options['fields']['field_user']['table'] = 'field_data_field_user';
+  $handler->display->display_options['fields']['field_user']['field'] = 'field_user';
+  $handler->display->display_options['fields']['field_user']['relationship'] = 'field_users_ref_value';
+  $handler->display->display_options['fields']['field_user']['label'] = '';
+  $handler->display->display_options['fields']['field_user']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_user']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user']['settings'] = array(
+    'link' => 1,
+  );
+  /* Field: Field: Phones */
+  $handler->display->display_options['fields']['field_phones']['id'] = 'field_phones';
+  $handler->display->display_options['fields']['field_phones']['table'] = 'field_data_field_phones';
+  $handler->display->display_options['fields']['field_phones']['field'] = 'field_phones';
+  $handler->display->display_options['fields']['field_phones']['relationship'] = 'field_users_ref_value';
+  $handler->display->display_options['fields']['field_phones']['label'] = '';
+  $handler->display->display_options['fields']['field_phones']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_phones']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_phones']['click_sort_column'] = 'numbertype';
+  $handler->display->display_options['fields']['field_phones']['settings'] = array(
+    'components' => array(
+      'country' => 0,
+      'numbertype' => 0,
+    ),
+    'full_hcard' => 0,
+    'as_tel_link' => 0,
+    'raw' => 1,
+    'allow_alpha' => 0,
+    'country_name_position' => 'after',
+    'numbertype_position' => 'before',
+  );
+  $handler->display->display_options['fields']['field_phones']['delta_offset'] = '0';
+  /* Field: Field: Email */
+  $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
+  $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['relationship'] = 'field_users_ref_value';
+  $handler->display->display_options['fields']['field_email']['label'] = '';
+  $handler->display->display_options['fields']['field_email']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_email']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_email']['type'] = 'email_plain';
+  /* Field: Field collection item: Name */
+  $handler->display->display_options['fields']['field_users_ref_name']['id'] = 'field_users_ref_name';
+  $handler->display->display_options['fields']['field_users_ref_name']['table'] = 'field_data_field_users_ref_name';
+  $handler->display->display_options['fields']['field_users_ref_name']['field'] = 'field_users_ref_name';
+  $handler->display->display_options['fields']['field_users_ref_name']['relationship'] = 'field_users_ref_value';
+  $handler->display->display_options['fields']['field_users_ref_name']['label'] = 'Contact';
+  $handler->display->display_options['fields']['field_users_ref_name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_users_ref_name']['alter']['text'] = '[field_users_ref_name]<br />
+[field_phones]<br />
+[field_email]';
+  $handler->display->display_options['fields']['field_users_ref_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['title'] = 'Calendar <span class="hr-events-location">%1</span>';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['validate']['type'] = 'og';
+  /* Contextual filter: Date: Date (node) */
+  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
+  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
+  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'week';
+  $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
+  $handler->display->display_options['arguments']['date_argument']['title_format'] = 'custom';
+  $handler->display->display_options['arguments']['date_argument']['title_format_custom'] = 'l d / F Y';
+  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
+    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  );
+  $handler->display->display_options['path'] = 'node/%/events/print/week';
+  $handler->display->display_options['menu']['title'] = 'Week';
+  $handler->display->display_options['menu']['weight'] = '2';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['hr_events_calendar'] = array(
     t('Master'),
     t('more'),
@@ -1124,10 +1364,26 @@ return 0;';
     t('Upcoming'),
     t('Upcoming events block'),
     t('Block'),
+    t('Print Master'),
+    t('%2'),
+    t('Date'),
+    t('Time'),
+    t('Name of the meeting'),
+    t('[field_address-thoroughfare] [field_address-premise] - [field_address-locality]'),
+    t('Calendar <span class="hr-events-location">%1</span>'),
+    t('Print Week'),
+    t('<div class="pull-left">
+  <span class="badge badge-rrule">D</span> every Day <span class="badge badge-rrule">W</span> every Week <span class="badge badge-rrule">M</span> every Month
+</div>'),
+    t('Rep'),
+    t('[field_event_date_2-rrule]'),
+    t('Contact'),
+    t('[field_users_ref_name]<br />
+[field_phones]<br />
+[field_email]'),
   );
   $export['hr_events_calendar'] = $view;
 
-  
   $view = new view();
   $view->name = 'hr_events_panes';
   $view->description = '';
@@ -1178,7 +1434,7 @@ return 0;';
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -1222,7 +1478,7 @@ return 0;';
     'hr_event' => 'hr_event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Space(s) (og_group_ref) */
+  /* Filter criterion: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['filters']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['filters']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['filters']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -1370,10 +1626,10 @@ return 0;';
     ),
   );
 
-    /* Display: Upcoming from context */
+  /* Display: Upcoming from context */
   $handler = $view->new_display('panel_pane', 'Upcoming from context', 'upcoming_from_context');
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Space(s) (og_group_ref) */
+  /* Contextual filter: Field: Space(s) (og_group_ref) */
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
@@ -1448,7 +1704,6 @@ return 0;';
       'label' => 'Content: Clusters/Sectors (field_bundles)',
     ),
   );
-
   $translatables['hr_events_panes'] = array(
     t('Master'),
     t('Upcoming Events'),
@@ -1468,6 +1723,8 @@ return 0;';
     t('Themes'),
     t('Event Category'),
     t('Events'),
+    t('Upcoming from context'),
+    t('Upcoming Events from context'),
   );
   $export['hr_events_panes'] = $view;
 
