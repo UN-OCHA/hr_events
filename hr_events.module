@@ -6,6 +6,8 @@
 
 include_once 'hr_events.features.inc';
 
+define('HR_EVENTS_WKHTMLTOPDF', 'http://pdf.contactsid.vm/htmltopdf');
+
 /**
  * Implements hook_og_features_registry()
  */
@@ -132,3 +134,54 @@ function hr_events_ctools_plugin_directory($module, $plugin) {
     return 'plugins/' . $plugin;
   }
 }
+
+/**
+ * Implements hook_views_pre_render()
+ * Adds PDF button to export events as PDF
+ * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4466 
+ */
+function hr_events_views_pre_render(&$view) {
+  /*if ($view->name == 'hr_events_calendar' && ($view->current_display == 'master' || $view->current_display == 'week' || $view->current_display == 'day')) {
+    $view->feed_icon .= '<li>'.l('PDF', str_replace('/events', '/events/pdf', current_path()), array('attributes' => array('target' => 'about:blank'))).'</li>';
+  }*/
+}
+
+/**
+ * Implements hook_menu()
+ * Defines the menu callbacks necessary to print the events in PDF format
+ * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4466
+ */
+function hr_events_menu() {
+  $items['node/%/events/pdf'] = array(
+    'page callback' => 'hr_events_pdf_output',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+function hr_events_pdf_output($nid) {
+  $html_path = str_replace('/pdf', '/print', current_path());
+  // Print PDF using wkhtmltopdf service
+  $html_url = url($html_path, array('absolute' => TRUE));
+  $params = array(
+    'url' => $html_url,
+    'params' => array(
+      'print-media-type' => 'true',
+      'footer-left' => 'Page [page] of [topage]',
+      'footer-right' => 'Powered by HUMANITARIAN RESPONSE. Date of creation: [date]',
+      'footer-font-name' => 'Exo 2',
+      'footer-font-size' => '8',
+    ),
+  );
+  $url = HR_EVENTS_WKHTMLTOPDF.'?'.http_build_query($params);
+  $req_params = array(
+    'method' => 'POST',
+  );
+  drupal_add_http_header('Content-Type', 'application/pdf; charset=utf-8');
+  drupal_add_http_header('Content-Disposition', 'attachment;filename="calendar.pdf"');
+  $output = chr_curl_http_request($url, $req_params);
+  echo $output->data;
+  exit;
+}
+
