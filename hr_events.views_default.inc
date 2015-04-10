@@ -192,7 +192,7 @@ function hr_events_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Indexed Node: Groups audience */
+  /* Contextual filter: Indexed Node: Space(s) */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -1623,6 +1623,7 @@ return 0;';
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Upcoming Events';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1685,6 +1686,7 @@ return 0;';
 
   /* Display: Upcoming */
   $handler = $view->new_display('panel_pane', 'Upcoming', 'upcoming');
+  $handler->display->display_options['link_url'] = 'search';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -1803,21 +1805,26 @@ return 0;';
     147444660 => 0,
   );
   $handler->display->display_options['filters']['field_themes_target_id_entityreference_filter']['reference_display'] = 'hr_themes:entityreference_1';
-  /* Filter criterion: Content: Event Category (field_event_category) */
-  $handler->display->display_options['filters']['field_event_category_target_id']['id'] = 'field_event_category_target_id';
-  $handler->display->display_options['filters']['field_event_category_target_id']['table'] = 'field_data_field_event_category';
-  $handler->display->display_options['filters']['field_event_category_target_id']['field'] = 'field_event_category_target_id';
-  $handler->display->display_options['filters']['field_event_category_target_id']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_category_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_event_category_target_id']['expose']['operator_id'] = 'field_event_category_target_id_op';
-  $handler->display->display_options['filters']['field_event_category_target_id']['expose']['label'] = 'Event Category';
-  $handler->display->display_options['filters']['field_event_category_target_id']['expose']['operator'] = 'field_event_category_target_id_op';
-  $handler->display->display_options['filters']['field_event_category_target_id']['expose']['identifier'] = 'field_event_category_target_id';
-  $handler->display->display_options['filters']['field_event_category_target_id']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Event Category (field_event_category) (reference filter) */
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['id'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['table'] = 'field_data_field_event_category';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['field'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['group'] = 1;
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['operator_id'] = 'field_event_category_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['label'] = 'Event Category';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['operator'] = 'field_event_category_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['identifier'] = 'field_event_category_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
   );
+  $handler->display->display_options['filters']['field_event_category_target_id_entityreference_filter']['reference_display'] = 'hr_event_categories:entityreference_1';
   /* Filter criterion: Date: Date (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
