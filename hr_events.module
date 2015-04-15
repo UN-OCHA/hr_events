@@ -6,7 +6,7 @@
 
 include_once 'hr_events.features.inc';
 
-define('HR_EVENTS_WKHTMLTOPDF', 'http://pdf.contactsid.vm/htmltopdf');
+define('HR_EVENTS_WKHTMLTOPDF', 'http://localhost:8441/htmltopdf');
 
 /**
  * Implements hook_og_features_registry()
@@ -141,9 +141,9 @@ function hr_events_ctools_plugin_directory($module, $plugin) {
  * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4466 
  */
 function hr_events_views_pre_render(&$view) {
-  /*if ($view->name == 'hr_events_calendar' && ($view->current_display == 'master' || $view->current_display == 'week' || $view->current_display == 'day')) {
+  if ($view->name == 'hr_events_calendar' && ($view->current_display == 'master' || $view->current_display == 'week' || $view->current_display == 'day')) {
     $view->feed_icon .= '<li>'.l('PDF', str_replace('/events', '/events/pdf', current_path()), array('attributes' => array('target' => 'about:blank'))).'</li>';
-  }*/
+  }
 }
 
 /**
