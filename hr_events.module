@@ -168,8 +168,8 @@ function hr_events_pdf_output($nid) {
     'url' => $html_url,
     'params' => array(
       'print-media-type' => 'true',
-      'footer-left' => 'Page [page] of [topage]',
-      'footer-right' => "Powered by HUMANITARIAN RESPONSE. Date of creation: [date]\nhttp://www.humanitarianresponse.info",
+      'footer-left' => t('Page [page] of [topage]'),
+      'footer-right' => t('Powered by HUMANITARIAN RESPONSE. Date of creation: [date]')."\nhttp://www.humanitarianresponse.info",
       'footer-font-name' => 'Exo 2',
       'footer-font-size' => '8',
       'footer-spacing' => '2',
