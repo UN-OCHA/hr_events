@@ -175,7 +175,7 @@ function hr_events_pdf_output($nid) {
       'footer-spacing' => '2',
     ),
   );
-  $url = HR_EVENTS_WKHTMLTOPDF.'?'.http_build_query($params);
+  $url = HR_EVENTS_WKHTMLTOPDF.'?'.http_build_query($params, NULL, '&');
   $req_params = array(
     'method' => 'POST',
   );
