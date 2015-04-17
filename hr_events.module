@@ -161,7 +161,33 @@ function hr_events_menu() {
 }
 
 function hr_events_pdf_output($nid) {
-  $html_path = str_replace('/pdf', '/print', current_path());
+  $path = current_path();
+  $node = entity_load_single('node', $nid);
+  $label = entity_label('node', $node);
+  $label = transliteration_clean_filename($label);
+  $html_path = str_replace('/pdf', '/print', $path);
+  // Determine period
+  $period = 'month';
+  if (strpos($path, 'week') !== FALSE) {
+    $period = 'week';
+  }
+  elseif (strpos($path, 'day') !== FALSE) {
+    $period = 'day';
+  }
+  $period = t($period);
+  // Determine date
+  $date = date('Y-m');
+  $date_pos = strpos($path, '/20');
+  if ($date_pos !== FALSE) {
+    $date_part = substr($path, $date_pos + 1);
+    $date_parts = explode('/', $date_part);
+    $date = $date_parts[0];
+  }
+  else {
+    if ($period == 'week' || $period == 'day') {
+      $date = date('Y-m-d');
+    }
+  }
   // Print PDF using wkhtmltopdf service
   $html_url = url($html_path, array('absolute' => TRUE));
   $params = array(
@@ -180,7 +206,7 @@ function hr_events_pdf_output($nid) {
     'method' => 'POST',
   );
   drupal_add_http_header('Content-Type', 'application/pdf; charset=utf-8');
-  drupal_add_http_header('Content-Disposition', 'attachment;filename="calendar.pdf"');
+  drupal_add_http_header('Content-Disposition', 'attachment;filename="'.t('calendar').'-'.$label.'-'.$period.'-'.$date.'.pdf"');
   $output = chr_curl_http_request($url, $req_params);
   echo $output->data;
   exit;
