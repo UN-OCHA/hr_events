@@ -153,6 +153,38 @@ function hr_events_views_pre_render(&$view) {
 }
 
 /**
+ * Implements hook_views_pre_view()
+ * Shows the selected filters in the print display for PDF output
+ */
+function hr_events_views_pre_view(&$view, &$display_id, &$args) {
+  if ($view->name == 'hr_events_calendar' && ($display_id == 'print_master' || $display_id == 'print_week' || $display_id == 'print_day')) {
+    $entity_types = array(
+      'field_coordination_hubs_target_id_entityreference_filter' => 'node',
+      'field_location_target_id_entityreference_filter' => 'taxonomy_term',
+      'field_bundles_target_id_entityreference_filter' => 'node',
+      'field_event_category_target_id_entityreference_filter' => 'taxonomy_term',
+    );
+    $header = '%2';
+    $filters = $view->display_handler->get_option('filters');
+    $i = 0;
+    foreach ($filters as $key => $filter) {
+      if ($filter['exposed'] == TRUE && isset($_GET[$key]) && $_GET[$key] != 'All') {
+        if ($i == 0) {
+          $header .= '<div class="filters">'.t('Filter criteria');
+        }
+        $entity = entity_load_single($entity_types[$key], $_GET[$key]);
+        $header .= '<span class="filter">'.entity_label($entity_types[$key], $entity).'</span>';
+        $i++;
+      }
+    }
+    if ($i > 0) {
+      $header .= '</div>';
+    }
+    $view->set_item_option($display_id, 'header', 'area', 'content', $header);
+  }
+}
+
+/**
  * Implements hook_menu()
  * Defines the menu callbacks necessary to print the events in PDF format
  * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4466
